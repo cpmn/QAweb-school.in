@@ -42,4 +42,10 @@ Then (/^I should see the title "(.*?)"$/) do |title|
   expect(sideBarMenu.is_title_displayed(title)).to be(true) 
 end
 
+Then(/^I should see the active option "([^"]*)" in breadcrumb navigator$/) do |active_option|
+  expect(breadcrumb_navigator.get_ative_page_name()).to eq(active_option)
+end
 
+When(/^Click on "(.*?)" button in register form$/) do |button_name|
+  base_Form.click_on_button(button_name)
+end

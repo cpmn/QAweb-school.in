@@ -20,9 +20,5 @@ When I expand "Student" option in side bar
 	And I select the sub category "Student Category"
 Then I should see the title "Student Category"
 
-@UIValidation
-
-@FuntionalTest
-
 
 

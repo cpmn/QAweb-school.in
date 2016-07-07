@@ -4,6 +4,7 @@ require 'capybara/dsl'
 require 'capybara/cucumber'
 require 'yaml'
 require 'pathname'
+include Capybara::DSL
 
 AfterConfiguration do
     #Load global configuration parameters

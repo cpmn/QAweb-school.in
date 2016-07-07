@@ -10,18 +10,18 @@ def sideBarMenu
 end
 
 class SideBar
-	include Capybara::DSL
+	# include Capybara::DSL
 
 	attr_reader :category_option, :sub_category_option, :panel_title
 
 	def initialize
-		@category_option = 'ul.navigation.navigation-main.navigation-accordion li'
+		@category_option = 'a[class ^= "has-ul"]'
 		@sub_category_option = 'ul li a'
 		@panel_title = '.panel-title'
 	end
 	
 	def expand_category category_option
-		find(@category_option, :text => category_option).click
+		find(@category_option, :text => category_option, :match => :prefer_exact).click
 	end
 	
 	def expand_sub_category sub_category_option
@@ -30,6 +30,5 @@ class SideBar
 
 	def is_title_displayed title
 		page.has_css?(@panel_title, :text => title)
-	end
-	
+	end	
 end
