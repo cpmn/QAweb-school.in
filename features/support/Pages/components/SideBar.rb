@@ -10,7 +10,7 @@ def sideBarMenu
 end
 
 class SideBar
-	# include Capybara::DSL
+	include Capybara::DSL
 
 	attr_reader :category_option, :sub_category_option, :panel_title
 

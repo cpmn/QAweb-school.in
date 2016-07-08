@@ -10,7 +10,7 @@ def topBarMenu
 end
 
 class TopBar
-	# include Capybara::DSL
+	include Capybara::DSL
 	attr_reader :username
 
 	def initialize

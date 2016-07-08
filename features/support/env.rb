@@ -4,7 +4,7 @@ require 'capybara/dsl'
 require 'capybara/cucumber'
 require 'yaml'
 require 'pathname'
-include Capybara::DSL
+#include Capybara::DSL
 
 AfterConfiguration do
     #Load global configuration parameters
@@ -52,7 +52,7 @@ def find_config_file(filename)
     end
     root = root.parent
   end
-  raise 'Configuration file ' #{filename}' not found!'
+  raise "Configuration file ' #{filename}' not found!"
 end
 
 def load_app_config_file(filename)
