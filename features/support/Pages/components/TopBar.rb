@@ -15,9 +15,16 @@ class TopBar
 
 	def initialize
 		@username = 'li.dropdown.dropdown-user a span'
+		@arrow_down = '.caret'
+		@log_out= '//a[text() = "Log Out"]/i'
 	end	
 	def is_username_displayed_top_bar user_name
 		page.has_css?(@username, :text => user_name)
+	end
+
+	def log_out()
+		page.find(@arrow_down).click
+		page.find(:xpath, @log_out).click
 	end
 
 end

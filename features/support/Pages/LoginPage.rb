@@ -9,7 +9,7 @@ def logIn
 	@logIn ||=LoginPage.new
 end
 class LoginPage
-	include Capybara::DSL
+	# include Capybara::DSL
 	attr_reader :inputLogin, :inputPass, :SignInBtn
 	attr_accessor :user, :password
 

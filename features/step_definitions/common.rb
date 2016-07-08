@@ -31,6 +31,7 @@ Then(/^I should see "([^"]*)"$/) do |text|
 end
 
 When(/^I expand "(.*?)" option in side bar$/) do |menu_option|
+  p menu_option
   sideBarMenu.expand_category(menu_option)
 end
 
@@ -42,4 +43,19 @@ Then (/^I should see the title "(.*?)"$/) do |title|
   expect(sideBarMenu.is_title_displayed(title)).to be(true) 
 end
 
+Then(/^I should see the active option "([^"]*)" in breadcrumb navigator$/) do |active_option|
+  expect(breadcrumbNavigator.get_ative_page_name()).to eq(active_option)
+end
 
+When(/^Click on save button in register form$/) do
+  addEmployeePage.click_on_save_button()
+end
+
+# When(/^I fill search box "(.*?)"$/) do |search_text|
+#   table.set_search_box(search_text)
+# end
+
+When(/^I fill search box (.*?)$/) do |search_text|
+p search_text
+  table.set_search_box(search_text)
+end
