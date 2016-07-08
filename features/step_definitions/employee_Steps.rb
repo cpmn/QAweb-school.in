@@ -4,6 +4,6 @@
 When(/^I fill the employee information fields$/) do |table|
   values = table.rows_hash
    values.each_pair do |label, value|
-  	add_employee_page.fill_field(label, value)
+  	addEmployeePage.fill_field(label, value)
   end
 end
