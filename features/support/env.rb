@@ -6,7 +6,7 @@ require 'yaml'
 require 'pathname'
 include Capybara::DSL
 
-AfterConfiguration do
+AfterConfiguration do 
     #Load global configuration parameters
     configuration = load_app_config_file('env.yml')
     
