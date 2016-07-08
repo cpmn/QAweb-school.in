@@ -7,7 +7,7 @@ def breadcrumbNavigator
 end
 
 class BreadcrumbNavigator
-	# include Capybara::DSL #always a nivel te clases
+	include Capybara::DSL #always a nivel te clases
 
 	def initialize
 		@active_page = '.breadcrumb .active'

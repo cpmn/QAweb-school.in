@@ -1,8 +1,8 @@
 =begin
-Author: Paola Munoz
-Description: - Create TopBar Page Object			 
-Version: 1.0
-Date: 06 Jul 2016
+Author: Paola Munoz - Mario Perez
+Description: - Create Commons Steps Definitions			 
+Version: 2.0
+Date: 07 Jul 2016
 =end
 
 Given(/^I am in web\-school login page$/) do
@@ -31,7 +31,6 @@ Then(/^I should see "([^"]*)"$/) do |text|
 end
 
 When(/^I expand "(.*?)" option in side bar$/) do |menu_option|
-  p menu_option
   sideBarMenu.expand_category(menu_option)
 end
 
@@ -47,15 +46,37 @@ Then(/^I should see the active option "([^"]*)" in breadcrumb navigator$/) do |a
   expect(breadcrumbNavigator.get_ative_page_name()).to eq(active_option)
 end
 
-When(/^Click on save button in register form$/) do
+When(/^I click on save button in register form$/) do
   addEmployeePage.click_on_save_button()
 end
 
-# When(/^I fill search box "(.*?)"$/) do |search_text|
-#   table.set_search_box(search_text)
-# end
+When(/^I click on first edit icon in table$/) do
+  tableGrid.click_edit_icon()
+end
 
-When(/^I fill search box (.*?)$/) do |search_text|
-p search_text
-  table.set_search_box(search_text)
+When(/^I click on first delete icon in table$/) do
+  tableGrid.click_remove_icon()
+end
+
+When(/^I fill search box "(.*?)"$/) do |search_text|
+  tableGrid.set_search_box(search_text)
+end
+
+When(/^I logout in the application$/) do 
+  topBarMenu.log_out()
+end
+
+Then(/^I should see "(.*?)" validation error$/) do |count| 
+  expect(baseForm.validation_error_count(count)).to be(true)
+end
+
+Then(/^I should see the following error message$/) do |table_error_message| 
+  error_message = table_error_message.raw
+  error_message.each do |error|
+    expect(baseForm.validation_error_txt(error[0])).to be(true) 
+  end
+end
+
+When(/^I should see "(.*?)" message in the table$/) do |message|
+  expect(tableGrid.is_no_result_message_displayed(message)).to be(true) 
 end

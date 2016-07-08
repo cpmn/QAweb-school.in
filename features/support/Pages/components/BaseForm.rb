@@ -6,7 +6,7 @@ def baseForm
 end
 
 class BaseForm
-	# include Capybara::DSL
+	include Capybara::DSL
 
 	def initialize
 		@label = 'label'
@@ -15,6 +15,7 @@ class BaseForm
 		@input_date = './following-sibling::div/input'
 		@dropdown = './following::select[1]'
 		@save_button = '#std_reg_submit'
+		@validation_error = 'div.school_val_error'
 	end
 	
 	def set_text_box(field_label, value)
@@ -42,4 +43,13 @@ class BaseForm
 	def click_on_save_button()
 		page.find(@save_button).click
 	end
+
+	def validation_error_count(count) 
+	    page.has_css?(@validation_error, :count => count.to_i)
+	end
+
+	def validation_error_txt(error_message) 
+	    page.has_css?(@validation_error, :text => error_message)
+	end
+
 end
