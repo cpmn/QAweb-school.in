@@ -40,8 +40,16 @@ class BaseForm
 	  	label_found.find(:xpath, @dropdown).select value
 	end
 
+	def scrolldown_by_element(element)
+    	hight_action_bar = '80'
+    	element.hover
+    	page.execute_script "window.scrollBy(0,#{hight_action_bar})"
+	end
+
 	def click_on_save_button()
-		page.find(@save_button).click
+		button = page.find(@save_button)
+        scrolldown_by_element(button)
+        button.click
 	end
 
 	def validation_error_count(count) 
@@ -51,5 +59,4 @@ class BaseForm
 	def validation_error_txt(error_message) 
 	    page.has_css?(@validation_error, :text => error_message)
 	end
-
 end
