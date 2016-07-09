@@ -23,8 +23,4 @@ class AddEmployeePage
 			baseForm.set_text_box(field_label, value)
 		end
 	end
-	
-	def click_on_save_button()
-		baseForm.click_on_save_button()
-	end
 end

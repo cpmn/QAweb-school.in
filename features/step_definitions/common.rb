@@ -47,7 +47,9 @@ Then(/^I should see the active option "([^"]*)" in breadcrumb navigator$/) do |a
 end
 
 When(/^I click on save button in register form$/) do
-  addEmployeePage.click_on_save_button()
+  # addEmployeePage.click_on_save_button()
+  p "click on register"
+  baseForm.click_on_save_button()
 end
 
 When(/^I click on first edit icon in table$/) do
