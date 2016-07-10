@@ -15,7 +15,7 @@ class TopBar
 
 	def initialize
 		@username = 'li.dropdown.dropdown-user a span'
-		@arrow_down = '.caret'
+		@arrow_down = '//i[@class="caret"]'
 		@log_out= '//a[text() = "Log Out"]/i'
 	end	
 	def is_username_displayed_top_bar user_name
@@ -23,7 +23,7 @@ class TopBar
 	end
 
 	def log_out()
-		page.find(@arrow_down).click
+		page.find(:xpath, @arrow_down).click
 		page.find(:xpath, @log_out).click
 	end
 
