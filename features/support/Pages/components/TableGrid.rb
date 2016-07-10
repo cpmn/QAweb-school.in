@@ -1,6 +1,10 @@
 #Author: Virginia Sanabria		 
 #Version: 1.0
 #Date: 06 Jul 2016
+#Updated at   | Update by
+#07 Jul 2016  | Mario Perez
+#09 Jul 2016  | Paola Munoz
+
 def tableGrid
 	@tableGrid ||=TableGrid.new
 end
@@ -14,6 +18,7 @@ class TableGrid
 		@remove_icon = '.glyphicon.glyphicon-remove'
 		@table_cell = '#item-grid table.items td'
 		@no_resutls = '#item-grid table.items span.empty'
+		@alert = WaitAlertMsg.new
 	end
 	
 	def set_search_box(value)
@@ -26,7 +31,7 @@ class TableGrid
 
 	def click_remove_icon()
 		page.find(@remove_icon).click
-		page.driver.browser.switch_to.alert.accept
+		@alert.waitUntilAlertPresent_and_accept
 	end
 
 	def is_no_result_message_displayed(message)
@@ -36,5 +41,13 @@ class TableGrid
 	def is_value_displayed_in_first_row(value)
 		page.has_css?(@table_cell, :text => value, :match => :prefer_exact)
 	end
+
+	def click_edit_icon_by_value(value)
+		page.find(:xpath, "//tr[contains(.,'"+value+"')]/td/a[contains(@href,'update')]").click		
+	end 
+	def click_remove_icon_by_value(value)	
+		page.find(:xpath, "//tr[contains(.,'"+value+"')]/td/a[contains(@href,'delete')]").click
+		@alert.waitUntilAlertPresent_and_accept
+	end 
 
 end
