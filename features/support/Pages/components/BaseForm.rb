@@ -36,7 +36,7 @@ class BaseForm
 	end
 
 	def select_option_in_dropdown(field_label, value)
-		label_found = page.find(@label,:text => field_label, :match => :prefer_exact)
+		label_found = page.find(@label,:text => field_label)
 	  	label_found.find(:xpath, @dropdown).select value
 	end
 
@@ -50,6 +50,7 @@ class BaseForm
 		button = page.find(@save_button)
         scrolldown_by_element(button)
         button.click
+        page.find('.pace-done')
 	end
 
 	def validation_error_count(count) 

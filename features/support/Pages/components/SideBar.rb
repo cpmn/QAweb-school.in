@@ -3,6 +3,8 @@ Author: Mario Perez
 Description: - Create TopBar Page Object			 
 Version: 1.0
 Date: 06 Jul 2016
+#Updated at   | Update by
+#10 Jul 2016  | Virginia Sanabria
 =end
 
 def sideBarMenu
@@ -21,11 +23,12 @@ class SideBar
 	end
 	
 	def expand_category category_option
-		find(@category_option, :text => category_option, :match => :prefer_exact).click
+		find(@category_option, :text => /^#{category_option}$/).click
 	end
 	
 	def expand_sub_category sub_category_option
-		find(@sub_category_option, :text => sub_category_option, :match => :prefer_exact).click
+		find(@sub_category_option, :text => /^#{sub_category_option}$/).click
+		page.find('.pace-done')
 	end
 
 	def is_title_displayed title
