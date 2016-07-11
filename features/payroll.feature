@@ -11,7 +11,7 @@ Then I should see "admin"
 When I expand "HR/Payroll" option in side bar
 	And I expand "Payroll" option in side bar
 
-@NavigationTests @PayrollTest1
+@NavigationTests @PayrollTests
 Scenario: Navigate through Payroll menu option
 
 When I select the sub category "Pay Head"

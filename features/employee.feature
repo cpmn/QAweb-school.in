@@ -11,7 +11,7 @@ Then I should see "admin"
 When I expand "HR/Payroll" option in side bar
 	And I expand "Employee Management" option in side bar
 
-@NavigationTests @EmployeeTest
+@NavigationTests @EmployeeTests
 Scenario: Navigate through Employee Management menu option
 
 When I select the sub category "Add Employee"
@@ -21,7 +21,7 @@ Then I should see the active option "Add User Type" in breadcrumb navigator
 When I select the sub category "Employee List"
 Then I should see the active option "Employee List" in breadcrumb navigator
 
-@UIValidationTest @EmployeeTest
+@UIValidationTests @EmployeeTests
 Scenario: UI validation for Add Employee page.
 	
 When I select the sub category "Add Employee"
@@ -43,7 +43,7 @@ Then I should see "14" validation error
 	| Mobile cannot be blank.			|
 	| Email cannot be blank.			|
 
-@FuntionalTests @EmployeeTest
+@FuntionalTests @EmployeeTests
 Scenario: Create an employee
 
 When I select the sub category "Add Employee"
@@ -77,7 +77,7 @@ Then I should see the employee displayed in table
 	| Designation 	| IT Assistant 	   |
 	| Email			| atest1@gmail.com |
 
-@FuntionalTests @EmployeeTest
+@FuntionalTests @EmployeeTests
 Scenario: Update an employee
 
 When I select the sub category "Employee List"
@@ -96,7 +96,7 @@ Then I should see the employee displayed in table
 	| Designation 	| IT Assistant 	   |
 	| Email			| atest1@gmail.com |
 
-@FuntionalTests @EmployeeTest
+@FuntionalTests @EmployeeTests
 Scenario: Delete an employee
 
 When I select the sub category "Employee List"

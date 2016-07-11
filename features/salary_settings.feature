@@ -9,7 +9,7 @@ Given I am in web-school login page
 When I login as "Administrator"
 Then I should see "admin"
 
-@UIValidationTest @SalaryTest
+@UIValidationTests @SalaryTests
 Scenario: UI validation for Salary Settings page.
 	
 When I expand "HR/Payroll" option in side bar
@@ -36,7 +36,7 @@ When I fill the salary settings information fields
 Then I should see the following error message 
 	| Unit should contain only numbers.|
 
-@FuntionalTests @SalaryTest1
+@FuntionalTests @SalaryTests
 Scenario: Create, update and delete a salary settings
 
 When I expand "HR/Payroll" option in side bar
@@ -75,7 +75,7 @@ When I fill search box "adminTestt"
 Then I should see the employee displayed in table
 	| Employee Name | adminTestt     |
 
-@FuntionalTests @SalaryTest2
+@FuntionalTests @SalaryTests
 Scenario: Create and delete a salary settings
 When I expand "HR/Payroll" option in side bar
 	And I expand "Payroll" option in side bar
