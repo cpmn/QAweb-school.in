@@ -16,8 +16,8 @@ class TableGrid
 		@search_box = '#search'
 		@edit_icon = '.glyphicon.glyphicon-pencil'
 		@remove_icon = '.glyphicon.glyphicon-remove'
-		@table_cell = '#item-grid table.items td'
-		@no_resutls = '#item-grid table.items span.empty'
+		@table_cell = 'table.items td'
+		@no_resutls = 'table.items span.empty'
 		@alert = WaitAlertMsg.new
 	end
 	
@@ -42,12 +42,17 @@ class TableGrid
 		page.has_css?(@table_cell, :text => value, :match => :prefer_exact)
 	end
 
-	def click_edit_icon_by_value(value)
-		page.find(:xpath, "//tr[contains(.,'"+value+"')]/td/a[contains(@href,'update')]").click		
+	def click_eye_edit_icon_by_value(value)
+		page.find(:xpath, "//tr[contains(.,'"+value+"')]/td/a[contains(@class,'eye')]").click		
 	end 
+
 	def click_remove_icon_by_value(value)	
 		page.find(:xpath, "//tr[contains(.,'"+value+"')]/td/a[contains(@href,'delete')]").click
 		@alert.waitUntilAlertPresent_and_accept
+	end 
+
+	def click_edit_icon_by_value(value)
+		page.find(:xpath, "//tr[contains(.,'"+value+"')]/td/a[contains(@href,'update')]").click		
 	end 
 
 end

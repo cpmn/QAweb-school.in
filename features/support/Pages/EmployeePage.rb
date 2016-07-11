@@ -1,15 +1,16 @@
 #Author: Virginia Sanabria		 
 #Version: 1.0
 #Date: 06 Jul 2016
-def addEmployeePage
-	@addEmployeePage ||= AddEmployeePage.new
+def employeePage
+	@employeePage ||= EmployeePage.new
 end
 
-class AddEmployeePage
+class EmployeePage
 	include Capybara::DSL
 
 	def initialize
 		@label = 'label'
+		@save_arrow_right_button = '.btn.btn-primary'
 	end
 	
 	def fill_field(field_label, value)
@@ -22,5 +23,12 @@ class AddEmployeePage
 		else
 			baseForm.set_text_box(field_label, value)
 		end
+	end
+
+	def click_on_save_arrow_right_button()
+		button = page.find(@save_arrow_right_button)
+        baseForm.scrolldown_by_element(button)
+        button.click
+        page.find('.pace-done')
 	end
 end

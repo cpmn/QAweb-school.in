@@ -44,11 +44,11 @@ Then I should see "14" validation error
 	| Email cannot be blank.			|
 
 @FuntionalTests @EmployeeTest
-Scenario: Create a employee
+Scenario: Create an employee
 
 When I select the sub category "Add Employee"
 	And I fill the employee information fields
-	|Employee Code   |A1111          |
+	|Employee Code   |testEmployee1  |
 	|Department		 |IT department	 |
 	|Designation	 |IT Assistant	 |
 	|Qualification	 |5				 |
@@ -62,5 +62,45 @@ When I select the sub category "Add Employee"
 	|Country		 |Bolivia		 |
 	|State			 |Beni			 |
 	|Mobile 		 |11111 		 |
-	|Email			 |test1@gmail.com|
-When Click on save button in register form
+	|Email			 |atest@gmail.com|
+	|Joining Date    |2015-5-06      |
+	|Date of Birth   |1986-7-02		 |
+When I click on save button in register form
+Then I should see "0" validation error
+Then I should see the active option "Employee List" in breadcrumb navigator
+When I fill search box "testEmployee1"
+Then I should see the employee displayed in table
+	| Employee Code | testEmployee1    |  
+	| Employee Name | vstestemp	       |
+	| Department 	| IT department    |
+	| Qualification | 5                |
+	| Designation 	| IT Assistant 	   |
+	| Email			| atest1@gmail.com |
+
+@FuntionalTests @EmployeeTest
+Scenario: Update an employee
+
+When I select the sub category "Employee List"
+	And I fill search box "testEmployee"
+	When I click on edit eye icon for item "testEmployee1"
+	And I fill the employee information fields
+	|First Name 	 |updateTes	 |
+	|Qualification	 |15		 |
+	And I click on save button in employee details page
+	And I fill search box "testEmployee1"
+Then I should see the employee displayed in table
+	| Employee Code | testEmployee1 |  
+	| Employee Name | updateTes     |
+	| Department 	| IT department |
+	| Qualification | 15            |
+	| Designation 	| IT Assistant 	   |
+	| Email			| atest1@gmail.com |
+
+@FuntionalTests @EmployeeTest
+Scenario: Delete an employee
+
+When I select the sub category "Employee List"
+	And I fill search box "testEmployee1"
+	And I click on remove item "testEmployee1"
+	And I fill search box "testEmployee1"
+Then I should see "No results found." message in the table
