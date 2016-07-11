@@ -1,5 +1,5 @@
 #Author: Paola Munoz
-#Description: - Create Scenarios for Student user and Student menu item
+#Description: - Create Scenarios Student subcategory option
 #Version: 1.0
 #Date: 06 Jul 2016
 #

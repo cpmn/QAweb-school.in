@@ -10,7 +10,7 @@ Background: Open web-school page and login as Guardian
     When I login as "Guardian"
     Then I should see "ASSQ"
 	
-  @UIValidationTest @route
+  @UIValidationTests @RouteTests
   Scenario: UI validation with guardian user.
 	
 	When I select ward name "Ammu S RAJU"
@@ -51,7 +51,7 @@ Background: Open web-school page and login as Guardian
 	  And I should see the following error message 
 	  | Route Stop Place cannot be blank.  |
 
-  @FunctionalTest @route
+  @FuntionalTests @RouteTests
   Scenario: Functional Test with guardian user.
 	
 	When I select ward name "Ammu S RAJU"

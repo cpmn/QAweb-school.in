@@ -4,17 +4,14 @@
 
 
 class WaitAlertMsg
+	include Capybara::DSL
+
 	def initialize
 		@alert = ''
 	end
-	def waitUntilAlertPresent
+	def waitUntilAlertPresent_and_accept
 		wait = Selenium::WebDriver::Wait.new ignore: Selenium::WebDriver::Error::NoAlertPresentError
   		@alert = wait.until { page.driver.browser.switch_to.alert }
-	end
-	def accept_the_alert_message
-		@alert.accept
-	end
-	def cancel_the_alert_message
-		@alert.dismuss
+  		@alert.accept
 	end
 end

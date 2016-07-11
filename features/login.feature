@@ -1,5 +1,5 @@
 #Author: Paola Munoz
-#Description: - Create Scenarios for Task Manager 
+#Description: - Login Validations
 #Version: 1.0
 #Date: 06 Jul 2016
 #
@@ -9,8 +9,8 @@
 
 Feature: Student Tasks
   
-  @UIValidation @LoginTests @NavigationTests
-  Scenario Outline: Create Student Task though Task Manager option
+  @UIValidationTests @LoginTests @NavigationTests
+  Scenario Outline: Login to WebShool Aplication with different users
     Given I am in web-school login page
     When I login as "<Role>"
     Then I should see "<UserName>"
@@ -24,14 +24,14 @@ Feature: Student Tasks
     |Employee     |surya a raju|
     |Guardian     |ASSQ|
 
-@UIValidation @LoginTests
+@UIValidationTests @LoginTests
 Scenario: Log to the aplication with wrong user
     Given I am in web-school login page
     When I login as "Wrong User"
     And I should see the following error messages in login page 
       | Username is incorrect. |
 
-@UIValidation @LoginTests
+@UIValidationTests @LoginTests
 Scenario: Log to the applicatoin with empty credentials
     Given I am in web-school login page
     When I click on Sign In

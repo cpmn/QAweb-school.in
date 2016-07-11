@@ -4,7 +4,7 @@
 #Date: 07 Jul 2016
 
 Feature: Navigation
-  @NavigationTest
+  @NavigationTests
   Scenario: Navigation testing with admin user.
 
     Given I am in web-school login page
